@@ -157,6 +157,12 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Remap for copilot
+vim.keymap.set('n', '<leader>cc', '<cmd>lua require("copilot").complete()<CR>', { desc = 'Complete with [C]opilot' })
+vim.keymap.set('n', '<leader>cn', '<cmd>lua require("copilot").next()<CR>', { desc = 'Go to [N]ext suggestion' })
+vim.keymap.set('n', '<leader>cp', '<cmd>lua require("copilot").prev()<CR>', { desc = 'Go to [P]revious suggestion' })
+vim.cmd 'let g:copilot_no_tab_map = v:true'
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -236,6 +242,9 @@ require('lazy').setup({
   --
   --  This is equivalent to:
   --    require('Comment').setup({})
+
+  -- copilot ftw 2024 04 07 /BB
+  'github/copilot.vim',
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
