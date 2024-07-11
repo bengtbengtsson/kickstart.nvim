@@ -159,6 +159,26 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Normal mode mapping for Up arrowvim.keymap.set('n', '<up>', function()
+vim.keymap.set('n', '<up>', function()
+  vim.api.nvim_echo({{'Um, use k instead', 'ErrorMsg'}}, false, {})
+end)
+vim.keymap.set('n', '<down>', function()
+  vim.api.nvim_echo({{'Um, use j instead', 'ErrorMsg'}}, false, {})
+end)
+vim.keymap.set('n', '<left>', function()
+  vim.api.nvim_echo({{'Um, use h instead', 'ErrorMsg'}}, false, {})
+end)
+vim.keymap.set('n', '<right>', function()
+  vim.api.nvim_echo({{'Um, use l instead', 'ErrorMsg'}}, false, {})
+end)
+
+-- Insert mode mapping for Up arrow
+vim.keymap.set('i', '<up>', '<NOP>')
+vim.keymap.set('i', '<down>', '<NOP>')
+vim.keymap.set('i', '<left>', '<NOP>')
+vim.keymap.set('i', '<right>', '<NOP>')
+
 -- Remap for copilot
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
   expr = true,
